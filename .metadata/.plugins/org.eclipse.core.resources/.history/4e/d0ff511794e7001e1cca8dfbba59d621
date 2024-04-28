@@ -1,0 +1,19 @@
+package basics;
+
+public class Chair extends Furniture {
+	
+		int numOfLegs = 4;
+		public void study() {
+			System.out.println("the chair is used for study");
+			
+		}
+		public static void main(String[]args) {
+			Chair chair = new Chair();
+			System.out.println(chair.numOfLegs);
+			
+		}
+		
+		
+	}
+
+

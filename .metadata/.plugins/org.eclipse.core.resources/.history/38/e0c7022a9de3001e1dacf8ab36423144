@@ -1,0 +1,11 @@
+package javaBasic;
+
+public class TryCatchPractice {
+	public static void main(String[]args) {
+		
+		
+	}
+	
+	
+
+}

@@ -1,0 +1,8 @@
+package basics;
+
+public class Chair extends Furniture {
+	public static void main(String[]args) {
+		
+	}
+
+}

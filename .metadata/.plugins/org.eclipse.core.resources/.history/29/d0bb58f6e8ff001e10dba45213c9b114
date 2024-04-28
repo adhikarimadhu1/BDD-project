@@ -1,0 +1,13 @@
+package functions;
+
+import org.openqa.selenium.WebDriver;
+
+public class CommonFunctions {
+	
+	WebDriver driver;
+	
+public CommonFunctions(WebDriver driver) {
+	this.driver = driver;
+	
+}
+}

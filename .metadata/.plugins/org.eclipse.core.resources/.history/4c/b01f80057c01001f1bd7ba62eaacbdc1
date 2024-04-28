@@ -1,0 +1,110 @@
+package functions;
+
+import java.io.FileNotFoundException;
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.testng.Assert;
+
+import jdk.javadoc.doclet.Reporter;
+import library.YamlHelper;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class HomePageFunctions extends CommonFunctions {
+	//WebDriver driver;
+
+	public HomePageFunctions(WebDriver driver) {
+		super(driver);
+	}
+
+	YamlHelper yamlHelper = new YamlHelper();
+	CommonFunctions commonFunctions = new CommonFunctions(driver);
+	private By trip = By.id("selectTripType-val");
+	private By tripType = By.xpath("//ul[@id='selectTripType-desc']/li");
+	private By fromAirport = By.id("fromAirportName");
+	private By orig = By.id("search_input");
+	private By toAirport = By.id("toAirportName");
+	private By passenger = By.id("passengers-val");
+	
+
+	public void selectTrip(String trips) {
+		try {
+			WebElement clicktripType = driver.findElement(trip);
+			clicktripType.click();
+			List<WebElement> selectTrip = driver.findElements(tripType);
+			for (int i = 0; i < selectTrip.size(); i++) {
+				String tripTypeText = selectTrip.get(i).getText();
+				//System.out.println(tripTypeText);
+				if (tripTypeText.equals(trips)) {
+					//System.out.println("after condition" + tripTypeText);
+
+					selectTrip.get(i).click();
+					//System.out.println("Clicked.......");
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.assertTrue(false);
+		}
+
+	}
+
+	
+
+	public void selectOriginDestination(String key, String origin, String dest)
+			throws FileNotFoundException, InterruptedException {
+		WebElement fromAir = driver.findElement(fromAirport);
+		fromAir.click();
+
+		WebElement org = driver.findElement(orig);
+		org.clear();
+		commonFunctions.waitForElement(org);
+		String oriData = yamlHelper.getFinalData(Integer.valueOf(key)).get(origin);
+		org.sendKeys(oriData);
+		org.sendKeys(Keys.RETURN);
+		
+		WebElement toAir = driver.findElement(toAirport);
+		//toAir.click();
+		commonFunctions.clickElement(toAir);
+		WebElement desti = driver.findElement(orig);
+		commonFunctions.waitForElement(desti);
+		desti.clear();
+		String destData = yamlHelper.getFinalData(Integer.valueOf(key)).get(dest);
+		desti.sendKeys(destData);
+
+		//desti.sendKeys(Keys.RETURN);
+
+	}
+
+	public void selectPassenger(String passengers) {
+		try {
+			WebElement clicktripType = driver.findElement(passenger);
+			clicktripType.click();
+			List<WebElement> selectTrip = driver.findElements(tripType);
+			for (int i = 0; i < selectTrip.size(); i++) {
+				String tripTypeText = selectTrip.get(i).getText();
+				//System.out.println(tripTypeText);
+				if (tripTypeText.equals(trips)) {
+					//System.out.println("after condition" + tripTypeText);
+
+					selectTrip.get(i).click();
+					//System.out.println("Clicked.......");
+					break;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			Assert.assertTrue(false);
+		}
+
+	}
+
+}

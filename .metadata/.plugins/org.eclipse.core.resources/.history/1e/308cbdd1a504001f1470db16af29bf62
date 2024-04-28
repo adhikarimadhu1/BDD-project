@@ -1,0 +1,10 @@
+package functions;
+
+import org.openqa.selenium.WebDriver;
+
+public class secondPageFunctions extends CommonFunctions  {
+	public secondPageFunctions(WebDriver driver) {
+		super(driver);
+	}
+
+}

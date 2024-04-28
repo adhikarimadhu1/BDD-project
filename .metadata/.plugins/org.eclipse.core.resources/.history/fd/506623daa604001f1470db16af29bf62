@@ -1,0 +1,8 @@
+package steps;
+
+import functions.BookingPageFunctions;
+
+public class BookingPage {
+	BookingPageFunctions bookingPageFunction = new BookingPageFunctions (BaseTest. driver);
+
+}

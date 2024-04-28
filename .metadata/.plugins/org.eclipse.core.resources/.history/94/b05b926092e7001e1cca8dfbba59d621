@@ -1,0 +1,12 @@
+package basics;
+
+public class Furniture {
+	
+	String location = "sterling";
+	int numOfStaff = 50;
+
+	public void decorate() {
+		System.out.println("the furniture is use for decorate");
+
+}
+}

@@ -1,0 +1,10 @@
+1:
+ scenario: purchase of a ticket
+ origin: IAD
+ destination: NUE
+ firstCity:
+ secondCity:
+2:
+ scenario: purchase of a ticket
+ origin: Ram
+ destination: Shyam
